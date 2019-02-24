@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "**/.*"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|map|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=604800, immutable"
+          }
+        ]
+      }
+    ]
+  }
+}

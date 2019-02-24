@@ -1,0 +1,135 @@
+@import "node_modules/breakpoint-sass/stylesheets/breakpoint";
+@import '../Layout/global-vars';
+
+.home {
+  main {
+    max-width: 1920px;
+    padding: 0;
+  }
+}
+
+.intro {
+  @include breakpoint(max-width $bp2 - 1) {
+    max-width: 600px;
+    padding: 4rem 10%;
+  }
+  @include breakpoint($bp2) {
+    width: 60%;
+    max-width: 900px;
+    padding: 4rem 6rem;
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+.headline {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  @include breakpoint($bp1) {
+    font-size: 2.5rem;
+  }
+  @include breakpoint($bp2) {
+    font-size: 3.5rem;
+  }
+}
+
+.subHeadline {
+  @include breakpoint($bp2) {
+    font-size: 1.5rem;
+  }
+}
+
+.content {
+  p {
+    padding: 10%;
+    margin: 7% auto;
+    background-color: $white;
+    color: $charcoal;
+  }
+  @include breakpoint($bp1) {
+    float: right;
+    width: 70%;
+  }
+  @include breakpoint($bp2) {
+    margin-top: 100vh;
+    width: 40%;
+  }
+}
+
+@include breakpoint($bp2) {
+  .scroll {
+    width: 24px;
+    height: 24px;
+    margin: -150px auto 150px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    transform: rotate(-45deg);
+    transition: 0.5s;
+    animation: scroll 1.5s infinite;
+    &.hidden {
+      opacity: 0;
+      animation: none;
+    }
+  }
+  @keyframes scroll {
+    0% {
+      transform: rotate(-45deg) translate(0, 0);
+      opacity: 0;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(-45deg) translate(-10px, 10px);
+      opacity: 0;
+    }
+  }
+}
+
+.today p {
+  margin-bottom: 0;
+  background-color: $highlight;
+  color: $white;
+
+  a {
+    color: $charcoal;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+}
+
+@include breakpoint($bp2) {
+  .history,
+  .intro,
+  .today {
+    transition: 0.5s ease-out;
+  }
+
+  body.focus {
+    .history,
+    .intro {
+      opacity: 0.2;
+      filter: blur(2px);
+      -webkit-filter: blur(4px);
+      -moz-filter: blur(4px);
+    }
+
+    .history {
+      transform-origin: top left;
+      transform: scale(0.98);
+    }
+
+    .intro {
+      transform-origin: top right;
+      transform: scale(0.97);
+    }
+
+    .today {
+      transform: translate3d(-40%, -50%, 0) scale(1.4);
+    }
+  }
+}

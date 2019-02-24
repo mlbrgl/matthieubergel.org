@@ -1,0 +1,17 @@
+//voluntarily not a CSS module to allow for using classes in markdown files
+
+@import '../Layout/global-vars';
+
+.tldr {
+  padding: 2rem;
+  background-color: $highlight;
+  color: $white;
+
+  a {
+    color: $charcoal;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+}
