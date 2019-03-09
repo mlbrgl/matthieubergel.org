@@ -30,7 +30,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        date(formatString: "dddd DDDo MMMM, YYYY")
+        date(formatString: "dddd Do MMMM, YYYY")
         title
         titleHide
       }
