@@ -5,13 +5,14 @@
 .tldr {
   padding: 2rem;
   background-color: $highlight;
-  color: $white;
+  color: $charcoal;
 
   a {
-    color: $charcoal;
+    color: $white;
 
     &:hover {
       background-color: $white;
+      color: $highlight;
     }
   }
 }
