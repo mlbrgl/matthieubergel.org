@@ -1,15 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-function Head({ description, lang, meta, keywords, title }) {
+function Head({
+  description, lang, meta, keywords, title,
+}) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
+      render={(data) => {
+        const metaDescription = description || data.site.siteMetadata.description;
         return (
           <Helmet
             htmlAttributes={{
@@ -20,68 +21,68 @@ function Head({ description, lang, meta, keywords, title }) {
             link={[
               {
                 rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css?family=Montserrat:900|Quicksand:300'
+                href: 'https://fonts.googleapis.com/css?family=Montserrat:900|Quicksand:300',
               },
               {
                 rel: 'canonical',
-                href: 'https://matthieubergel.org'
-              }
+                href: 'https://matthieubergel.org',
+              },
             ]}
             meta={[
               {
-                name: `description`,
+                name: 'description',
                 content: metaDescription,
               },
               {
-                property: `og:title`,
+                property: 'og:title',
                 content: title,
               },
               {
-                property: `og:description`,
+                property: 'og:description',
                 content: metaDescription,
               },
               {
-                property: `og:type`,
-                content: `website`,
+                property: 'og:type',
+                content: 'website',
               },
               {
-                name: `twitter:card`,
-                content: `summary`,
+                name: 'twitter:card',
+                content: 'summary',
               },
               {
-                name: `twitter:creator`,
+                name: 'twitter:creator',
                 content: data.site.siteMetadata.author,
               },
               {
-                name: `twitter:title`,
+                name: 'twitter:title',
                 content: title,
               },
               {
-                name: `twitter:description`,
+                name: 'twitter:description',
                 content: metaDescription,
               },
             ]
               .concat(
                 keywords.length > 0
                   ? {
-                      name: `keywords`,
-                      content: keywords.join(`, `),
-                    }
-                  : []
+                    name: 'keywords',
+                    content: keywords.join(', '),
+                  }
+                  : [],
               )
               .concat(meta)}
           />
-        )
+        );
       }}
     />
-  )
+  );
 }
 
 Head.defaultProps = {
-  lang: `en`,
+  lang: 'en',
   meta: [],
   keywords: [],
-}
+};
 
 Head.propTypes = {
   description: PropTypes.string,
@@ -89,9 +90,9 @@ Head.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
-}
+};
 
-export default Head
+export default Head;
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -103,4 +104,4 @@ const detailsQuery = graphql`
       }
     }
   }
-`
+`;

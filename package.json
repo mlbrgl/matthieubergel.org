@@ -32,6 +32,7 @@
     "serve": "gatsby serve",
     "develop": "gatsby develop --open",
     "start": "npm run develop",
+    "lint": "eslint . --fix",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "devDependencies": {
