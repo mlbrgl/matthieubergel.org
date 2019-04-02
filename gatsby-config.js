@@ -1,27 +1,28 @@
 module.exports = {
   siteMetadata: {
-    title: `Matthieu Bergel`,
-    description: ``,
-    author: `Matthieu Bergel`,
+    title: 'Matthieu Bergel',
+    description: '',
+    author: 'Matthieu Bergel',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `content`,
-        path: `${__dirname}/src/content`
+        name: 'content',
+        path: `${__dirname}/src/content`,
       },
     },
     {
-    resolve: `gatsby-plugin-canonical-urls`,
+      resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: `https://matthieubergel.org`,
+        siteUrl: 'https://matthieubergel.org',
       },
     },
-    `gatsby-transformer-remark`,
-    `gatsby-mdx`,
-    `gatsby-transformer-sharp`,
+    'gatsby-transformer-remark',
+    'gatsby-mdx',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-remove-trailing-slashes',
     // `gatsby-plugin-sharp`,
     // {
     //   resolve: `gatsby-plugin-manifest`,
@@ -35,9 +36,9 @@ module.exports = {
     //     icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
     //   },
     // },
-    `gatsby-plugin-sass`,
+    'gatsby-plugin-sass',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};
