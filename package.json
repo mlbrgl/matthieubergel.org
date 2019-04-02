@@ -5,10 +5,10 @@
   "version": "0.1.0",
   "author": "Matthieu Bergel <hello@matthieubergel.org>",
   "dependencies": {
-    "@mdx-js/mdx": "^0.17.5",
-    "@mdx-js/tag": "^0.17.5",
+    "@mdx-js/mdx": "^0.20.3",
+    "@mdx-js/tag": "^0.20.3",
     "breakpoint-sass": "^2.7.1",
-    "gatsby": "^2.0.96",
+    "gatsby": "^2.3.4",
     "gatsby-image": "^2.0.20",
     "gatsby-mdx": "^0.4.0",
     "gatsby-plugin-canonical-urls": "^2.0.10",
