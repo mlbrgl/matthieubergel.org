@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './WithLink.module.scss';
 
 const WithLink = ({ children, href, ext }) => {
@@ -13,6 +14,16 @@ const WithLink = ({ children, href, ext }) => {
       {children}
     </a>
   );
+};
+
+WithLink.defaultProps = {
+  ext: false,
+};
+
+WithLink.propTypes = {
+  children: PropTypes.element.isRequired,
+  href: PropTypes.string.isRequired,
+  ext: PropTypes.bool,
 };
 
 export default WithLink;

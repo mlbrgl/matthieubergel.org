@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from '../Layout/Layout';
 import Head from '../Layout/Head/Head';
@@ -23,6 +24,12 @@ const Article = ({
       </main>
     </Layout>
   );
+};
+
+Article.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object.isRequired,
+  }).isRequired,
 };
 
 export default Article;
