@@ -1,5 +1,5 @@
 import React from 'react';
-import Code from '../components/Code/Code.jsx';
+import Code from '../components/Code/Code';
 
 const CodePage = () => <Code />;
 

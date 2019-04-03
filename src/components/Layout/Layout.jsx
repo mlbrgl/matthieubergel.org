@@ -8,8 +8,13 @@ const Layout = ({ children, className }) => (
   </div>
 );
 
+Layout.defaultProps = {
+  className: '',
+};
+
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
 
 export default Layout;

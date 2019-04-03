@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 // MDX Fragments
 import Index from '../../content/code/Index.mdx';
 
-const List = ({ title }) => (
+const Code = () => (
   <Layout>
     <Head title="Code" />
     <Header />
@@ -16,4 +16,4 @@ const List = ({ title }) => (
   </Layout>
 );
 
-export default List;
+export default Code;
