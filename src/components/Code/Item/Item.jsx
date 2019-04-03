@@ -4,24 +4,22 @@ import { TweenLite } from 'gsap';
 import styles from './Item.module.scss';
 
 const Item = ({
-  children, title, stack, transitionStatus,
+  children, title, stack, hover,
 }) => {
   const contentRef = useRef(null);
   const [tween, setTween] = useState(null);
 
   useEffect(() => {
-    // Will only trigger after the first render
+    // Will only trigger after the first render, and not subsequent ones
     if (tween === null) {
       // https://codepen.io/anon/pen/bNxYqq
       setTween(TweenLite.from(contentRef.current, 0.3, { height: 0, autoAlpha: 0 }).reversed(true));
-    }
-
-    if (transitionStatus === 'entering') {
+    } else if (hover) {
       tween.play();
-    } else if (transitionStatus === 'exiting') {
+    } else {
       tween.reverse();
     }
-  }, [transitionStatus]);
+  }, [hover]);
 
   return (
     <div className={styles.item}>
@@ -33,14 +31,14 @@ const Item = ({
 };
 
 Item.defaultProps = {
-  transitionStatus: null,
+  hover: null,
 };
 
 Item.propTypes = {
   children: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   stack: PropTypes.string.isRequired,
-  transitionStatus: PropTypes.string,
+  hover: PropTypes.bool,
 };
 
 export default Item;
