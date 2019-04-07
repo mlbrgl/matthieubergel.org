@@ -6,25 +6,31 @@ import styles from './Item.module.scss';
 const Item = ({
   children, title, stack, hover,
 }) => {
-  const contentRef = useRef(null);
+  const hoverRef = useRef(null);
   const [tween, setTween] = useState(null);
 
   useEffect(() => {
-    // Will only trigger after the first render, and not subsequent ones
-    if (tween === null) {
-      // https://codepen.io/anon/pen/bNxYqq
-      setTween(TweenLite.from(contentRef.current, 0.3, { height: 0, autoAlpha: 0 }).reversed(true));
-    } else if (hover) {
+    if (hover === false) {
+      // Will only trigger after the first render, and not subsequent ones
+      if (tween === null) {
+        setTween(TweenLite.to(hoverRef.current, 0.3, {
+          width: '100%',
+        }).pause());
+      } else {
+        TweenLite.set(hoverRef.current, { left: 'unset', right: 0 });
+        tween.reverse();
+      }
+    } else if (hover === true) {
+      TweenLite.set(hoverRef.current, { right: 'unset', left: 0 });
       tween.play();
-    } else {
-      tween.reverse();
     }
   }, [hover]);
 
   return (
     <div className={styles.item}>
+      { hover !== null ? <div ref={hoverRef} className={styles.hover} /> : null }
       <h3>{title}</h3>
-      <div ref={contentRef} className={styles.content}>{children}</div>
+      <div className={styles.content}>{children}</div>
       <div className={styles.stack}>{stack}</div>
     </div>
   );

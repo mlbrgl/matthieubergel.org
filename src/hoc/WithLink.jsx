@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './WithLink.module.scss';
 
 const WithLink = ({ children, href, ext }) => {
-  const [hover, setHover] = useState(null);
+  const [hover, setHover] = useState(false);
 
   const attr = { href };
   if (ext === true) {

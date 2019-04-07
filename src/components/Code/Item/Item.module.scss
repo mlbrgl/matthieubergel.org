@@ -1,12 +1,21 @@
 @import "../../Layout/global-vars";
 
 .item {
+  position: relative;
   margin: 1rem 0 2rem;
   padding: 2rem 2rem 2.2rem;
   
   h3 {
     margin-top: 0;
   }
+}
+
+.hover {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 1px;
+  background-color: $highlight;
 }
 
 .content {
