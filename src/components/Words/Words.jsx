@@ -11,19 +11,10 @@ const Words = () => (
   <StaticQuery
     query={graphql`
       {
-        allMarkdownRemark (
-          filter: {
-            fields: {
-              slug: {
-                regex: "/^words/"
-              }
-            }
-          },
-          sort: {
-            fields: [frontmatter___date],
-            order: DESC
-          }
-        ){
+        allMarkdownRemark(
+          filter: { fields: { slug: { regex: "/^words/" } } }
+          sort: { fields: [frontmatter___date], order: DESC }
+        ) {
           edges {
             node {
               frontmatter {
@@ -40,24 +31,15 @@ const Words = () => (
     `}
     render={data => (
       <Layout>
-        <Head title="Code" />
+        <Head title="Words" />
         <Header />
         <main>
           <h1>Words</h1>
-          {
-            data.allMarkdownRemark.edges
-              .map(item => (
-                <WithLink
-                  href={item.node.fields.slug}
-                  key={item.node.fields.slug}
-                >
-                  <Item
-                    title={item.node.frontmatter.title}
-                    date={item.node.frontmatter.date}
-                  />
-                </WithLink>
-              ))
-          }
+          {data.allMarkdownRemark.edges.map(item => (
+            <WithLink href={item.node.fields.slug} key={item.node.fields.slug}>
+              <Item title={item.node.frontmatter.title} date={item.node.frontmatter.date} />
+            </WithLink>
+          ))}
         </main>
       </Layout>
     )}
