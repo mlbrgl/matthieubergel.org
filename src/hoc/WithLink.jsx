@@ -11,8 +11,7 @@ const WithLink = ({ children, href, ext }) => {
     attr.rel = 'noreferrer noopener';
   }
 
-  const WrappedComponent = React.Children
-    .map(children, child => React.cloneElement(child, { hover }));
+  const WrappedComponent = React.Children.map(children, child => React.cloneElement(child, { hover }));
 
   return (
     <a

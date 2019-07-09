@@ -13,9 +13,11 @@ const Item = ({
     if (hover === false) {
       // Will only trigger after the first render, and not subsequent ones
       if (tween === null) {
-        setTween(TweenLite.to(hoverRef.current, 0.3, {
-          width: '100%',
-        }).pause());
+        setTween(
+          TweenLite.to(hoverRef.current, 0.3, {
+            width: '100%',
+          }).pause(),
+        );
       } else {
         TweenLite.set(hoverRef.current, { left: 'unset', right: 0 });
         tween.reverse();
@@ -28,7 +30,7 @@ const Item = ({
 
   return (
     <div className={styles.item}>
-      { hover !== null ? <div ref={hoverRef} className={styles.hover} /> : null }
+      {hover !== null ? <div ref={hoverRef} className={styles.hover} /> : null}
       <h3>{title}</h3>
       <div className={styles.content}>{children}</div>
       <div className={styles.stack}>{stack}</div>
